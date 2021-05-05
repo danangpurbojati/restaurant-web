@@ -1,4 +1,5 @@
-import restaurants from '../../../DATA.json';
+import RestaurantDbSource from '../../data/restaurantdb-source';
+import CONFIG from '../../globals/config';
 
 const HomePage = {
   async render() {
@@ -29,12 +30,13 @@ const HomePage = {
   },
 
   async afterRender() {
+    const restaurants = await RestaurantDbSource.allRestaurants();
     const menuContent = document.getElementById('menu-content');
     let restaurantElement = '';
-    restaurants.restaurants.forEach((restaurant) => {
+    restaurants.forEach((restaurant) => {
       restaurantElement += `
         <div class="card">
-            <img class="menu-image" src="${restaurant.pictureId}" alt="${restaurant.name}">
+            <img class="menu-image" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}">
             <div class="menu-city">
                 <p>${restaurant.city}</p>
             </div>
@@ -47,7 +49,7 @@ const HomePage = {
                 <p class="menu-description">${restaurant.description.substring(0, 100)}. . .</p>
             </div>
             <div class="menu-detail">
-                <a aria-label="more detail ${restaurant.name}" class="btn" href="#">More Detail</a>
+                <a aria-label="more detail ${restaurant.name}" class="btn" href="/#/detail/${restaurant.id}">More Detail</a>
             </div>
         </div>        
         `;
