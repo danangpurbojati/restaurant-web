@@ -1,7 +1,7 @@
 import HomePage from '../views/pages/home-page';
 
 const routes = {
-    '/': HomePage
+  '/': HomePage,
 };
 
 export default routes;
