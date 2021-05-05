@@ -292,10 +292,6 @@ footer{
         transition: transform 0.3s ease-in-out;
     }
 
-    .body-open{
-        overflow: hidden;
-    }
-
     .nav-open{
         transform: translateY(135%);
         

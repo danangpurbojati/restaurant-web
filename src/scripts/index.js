@@ -1,23 +1,15 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
 import restaurants from '../DATA.json';
+import App from './views/app';
 
 window.addEventListener('DOMContentLoaded', () => {
-    const drawer = document.getElementById('drawer');
-    const hamburger = document.getElementById('hamburger');
-    const body = document.querySelector('body');
     const menuContent = document.getElementById('menu-content');
 
-    hamburger.addEventListener('click', (event) => {  
-        drawer.classList.toggle("nav-open");
-        body.classList.toggle("body-open");
-        event.stopPropagation();
-    });
-
-    body.addEventListener('click', () => {
-        drawer.classList.remove('nav-open');
-        body.classList.remove('body-open');
-        event.stopPropagation();
+    const app = new App({
+        button: document.getElementById('hamburger'),
+        drawer: document.getElementById('drawer'),
+        content: document.getElementById('content-wrapper'),
     });
 
     let restaurantElement = "";
