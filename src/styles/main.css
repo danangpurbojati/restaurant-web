@@ -200,6 +200,11 @@ nav{
 
 .menu-detail{
     border-top: 1px solid #e1dcdc;
+    background-color: black;
+}
+
+.menu-detail a{
+    color: white;
 }
 
 .more-restaurant-btn{
