@@ -356,7 +356,7 @@ footer{
 @media screen and (max-width: 760px) {
     .menu-wrapper{
         position: absolute;
-        top: -300%;
+        top: -400%;
         left: 0;
         flex-direction: column;
         background-color: black;
@@ -366,7 +366,7 @@ footer{
     }
 
     .nav-open{
-        transform: translateY(135%);
+        transform: translateY(125%);
         
     }
 
