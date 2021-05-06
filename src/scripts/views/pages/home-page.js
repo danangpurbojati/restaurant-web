@@ -10,7 +10,7 @@ const HomePage = {
                 <h2 class="hero-sub-title">it's a good time for the great taste of burgers</h2>
                 <h1 class="hero-title">burger week</h1>
                 <div class="hero-link-wrapper">
-                    <a class="btn btn-outline" href="#">Our Menu</a>
+                    <a class="btn btn-outline" href="/#/restaurants">Our Restaurants</a>
                     <a class="btn btn-full" href="#">Order</a>
                 </div>
             </div>
@@ -25,7 +25,7 @@ const HomePage = {
                     
                 </div>
 
-                <a href="/#/detail/23" class="btn more-restaurant-btn">More restaurants</a>
+                <a href="/#/restaurants" class="btn more-restaurant-btn">More restaurants</a>
             </div>
         </main>  
     `;
