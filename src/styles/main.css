@@ -220,6 +220,7 @@ nav{
 /* Detail Page */
 .detail-page{
     margin: 24px 0;
+    /* border: 2px solid #ccc; */
 }
 
 .detail-image-wrapper{
@@ -281,6 +282,68 @@ nav{
     text-align: justify;
 }
 
+
+/* Form Wrapper */
+form{
+    padding: 14px;
+}
+
+.input-wrapper{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    margin: 14px 0;
+}
+
+.label{
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+input{
+    padding: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+textarea{
+    padding: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+    min-height: 100px;
+}
+
+.submit{
+    display: inline-block;
+    width: 100%;
+    padding: 8px;
+    cursor: pointer;
+}
+
+
+/* Review */
+.review-header{
+    margin-bottom: 16px;
+}
+
+.review-wrapper{
+    /* border: 1px solid red; */
+    padding: 8px;
+    border-bottom: 1px solid #dcdcdc;
+    margin-bottom: 14px;
+}
+
+.reviewer{
+    font-size: 18px;
+}
+
+.review-text{
+    color: #6b6b6b;
+    text-align: justify;
+    line-height: 1.6;
+    margin-top: 8px;
+    font-size: 14px;
+}
 
 
 /* Footer */
@@ -435,5 +498,42 @@ footer{
     .hero-title{
         font-size: 32px;
         margin-bottom: 12px;
+    }
+}
+
+
+.loading-wrapper{
+    text-align: center;
+}
+
+.loading-wrapper p{
+    font-style: italic;
+}
+
+.loading-animation {
+    margin-bottom: 16px;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+
+.loading-animation:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #6b6b6b;
+    border-color: #6b6b6b transparent #6b6b6b transparent;
+    animation: loading-animation 1.2s linear infinite;
+}
+
+@keyframes loading-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }

@@ -10,6 +10,34 @@ const Detail = {
           
       </div>
 
+      <div>
+          <div class="container">
+              <h3>Add Review</h3>
+              <form id="form-review">
+                  <div class="input-wrapper">
+                      <label class="label" for="name">Name:</label>
+                      <input type="text" id="name" placeholder="your name ..">
+                  </div>
+                  <div class="input-wrapper">
+                      <label class="label" for="comment">Comment:</label>
+                      <textarea name="comment" id="comment"></textarea>
+                  </div>
+                  <button class="submit" type="submit">Submit</button>
+              </form>
+          </div>
+          <div class="container">
+              <h3 class="review-header">All Reviews</h3>
+              <div class="review-wrapper">
+                  <h3 class="reviewer">Joni Iskandar</h3>
+                  <p class="review-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam vero beatae corporis provident tempore atque eveniet incidunt quae enim porro quos, ad, itaque dignissimos harum maiores consequatur impedit blanditiis repudiandae.</p>
+              </div>
+              <div class="review-wrapper">
+                  <h3 class="reviewer">Joni Iskandar</h3>
+                  <p class="review-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam vero beatae corporis provident tempore atque eveniet incidunt quae enim porro quos, ad, itaque dignissimos harum maiores consequatur impedit blanditiis repudiandae.</p>
+              </div>
+          </div>
+      </div>
+
       <div id="likeButtonContainer">
       
       </div>
@@ -19,6 +47,7 @@ const Detail = {
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantDbSource.detailRestaurant(url.id);
+    console.log(restaurant);
     const detailPageContainer = document.getElementById('detail-page');
     const detailRestaurant = `
       <div class="container">
@@ -30,9 +59,6 @@ const Detail = {
               <div class="rating-wrapper">
                   <h3>Rating: </h3>
                   <p>${restaurant.restaurant.rating}</p>
-              </div>
-              <div class="like-wrapper">
-                  <h3>like</h3>
               </div>
           </div>
           <div class="detail-city-wrapper">
@@ -50,6 +76,36 @@ const Detail = {
       </div>
     `;
     detailPageContainer.innerHTML = detailRestaurant;
+
+    const formReview = document.getElementById('form-review');
+    const nameInput = document.getElementById('name');
+    const commentInput = document.getElementById('comment');
+
+    formReview.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = {
+        id: restaurant.restaurant.id,
+        name: nameInput.value,
+        review: commentInput.value,
+      };
+
+      fetch('https://restaurant-api.dicoding.dev/review', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Auth-Token': '12345',
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log('Success:', result);
+          // window.location.reload();
+        })
+        .catch((error) => {
+          alert(error);
+        });
+    });
 
     LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
