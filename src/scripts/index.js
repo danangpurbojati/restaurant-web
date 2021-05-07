@@ -1,6 +1,6 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
-// import restaurants from '../DATA.json';
+import '../styles/responsive.css';
 import App from './views/app';
 import swRegister from './utils/sw-register';
 import WebSocketInitiator from './utils/websocket-initiator';

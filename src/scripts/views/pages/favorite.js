@@ -1,4 +1,5 @@
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
+import { restorantItem, emptyFavorite } from '../templates/template-creator';
 
 const Favorite = {
   async render() {
@@ -18,29 +19,17 @@ const Favorite = {
 
   async afterRender() {
     const restaurants = await FavoriteRestaurantIdb.getAllRestaurant();
+    console.log(restaurants.length);
     const restaurantContainer = document.getElementById('allrestaurants');
     let restaurantElement = '';
-    restaurants.forEach((restaurant) => {
-      restaurantElement += `
-            <div class="card">
-                <img class="menu-image" src="${restaurant.image_url}" alt="${restaurant.name}">
-                <div class="menu-city">
-                    <p>${restaurant.city}</p>
-                </div>
-                <div class="menu-text">
-                    <p class="menu-rating">
-                        <strong>Rating: </strong> 
-                        ${restaurant.rating}
-                    </p>
-                    <h1 class="menu-title">${restaurant.name}</h1>
-                    <p class="menu-description">${restaurant.description.substring(0, 100)}. . .</p>
-                </div>
-                <div class="menu-detail">
-                    <a aria-label="more detail ${restaurant.name}" class="btn" href="/#/detail/${restaurant.id}">More Detail</a>
-                </div>
-            </div>            
-        `;
-    });
+
+    if (restaurants.length) {
+      restaurants.forEach((restaurant) => {
+        restaurantElement += restorantItem(restaurant);
+      });
+    } else {
+      restaurantElement = emptyFavorite();
+    }
 
     restaurantContainer.innerHTML = restaurantElement;
   },

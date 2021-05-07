@@ -1,5 +1,5 @@
 import RestaurantDbSource from '../../data/restaurantdb-source';
-import CONFIG from '../../globals/config';
+import { restorantItem } from '../templates/template-creator';
 
 const RestaurantsPage = {
   async render() {
@@ -22,25 +22,7 @@ const RestaurantsPage = {
     const restaurantContainer = document.getElementById('allrestaurants');
     let restaurantElement = '';
     restaurants.forEach((restaurant) => {
-      restaurantElement += `
-        <div class="card">
-            <img class="menu-image" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}">
-            <div class="menu-city">
-                <p>${restaurant.city}</p>
-            </div>
-            <div class="menu-text">
-                <p class="menu-rating">
-                    <strong>Rating: </strong> 
-                    ${restaurant.rating}
-                </p>
-                <h1 class="menu-title">${restaurant.name}</h1>
-                <p class="menu-description">${restaurant.description.substring(0, 100)}. . .</p>
-            </div>
-            <div class="menu-detail">
-                <a aria-label="more detail ${restaurant.name}" class="btn" href="/#/detail/${restaurant.id}">More Detail</a>
-            </div>
-        </div>            
-      `;
+      restaurantElement += restorantItem(restaurant);
     });
 
     restaurantContainer.innerHTML = restaurantElement;
