@@ -90,14 +90,14 @@ const emptyFavorite = () => `
   </div
 `;
 
-const createLikeButtonTemplate = () => `
-  <button aria-label="like this movie" id="likeButton" class="like">
+const createLikeRestaurantButtonTemplate = () => `
+  <button aria-label="like this restaurant" id="likeButton" class="like">
      <i class="fa fa-heart-o" aria-hidden="true"></i>
   </button>
 `;
 
-const createLikedButtonTemplate = () => `
-  <button aria-label="unlike this movie" id="likeButton" class="like">
+const createUnlikeRestaurantButtonTemplate = () => `
+  <button aria-label="unlike this restaurant" id="likeButton" class="like">
     <i class="fa fa-heart" aria-hidden="true"></i>
   </button>
 `;
@@ -107,6 +107,6 @@ export {
   detailRestaurant,
   pageNotFound,
   emptyFavorite,
-  createLikeButtonTemplate,
-  createLikedButtonTemplate,
+  createLikeRestaurantButtonTemplate,
+  createUnlikeRestaurantButtonTemplate,
 };
