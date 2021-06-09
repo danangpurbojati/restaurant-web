@@ -86,7 +86,7 @@ const pageNotFound = () => `
 
 const emptyFavorite = () => `
   <div class="container">
-    <p>No Restaurants</p>
+    <p class="no-favorite-item">No Restaurants</p>
   </div
 `;
 
