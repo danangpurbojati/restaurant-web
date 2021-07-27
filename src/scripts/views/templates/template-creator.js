@@ -3,7 +3,7 @@ import { reviewItem, categoryItem, foodItem } from './detail-templates';
 
 const restorantItem = (restaurant) => `
   <div class="card">
-    <img class="menu-image" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}">
+    <img loading="lazy" class="menu-image" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}">
     <div class="menu-city">
         <p>${restaurant.city}</p>
     </div>
@@ -92,13 +92,13 @@ const emptyFavorite = () => `
 
 const createLikeRestaurantButtonTemplate = () => `
   <button aria-label="like this restaurant" id="likeButton" class="like">
-     <i class="fa fa-heart-o" aria-hidden="true"></i>
+     <i class="fas fa-thumbs-up" aria-hidden="true"></i>
   </button>
 `;
 
 const createUnlikeRestaurantButtonTemplate = () => `
   <button aria-label="unlike this restaurant" id="likeButton" class="like">
-    <i class="fa fa-heart" aria-hidden="true"></i>
+    <i class="fas fa-thumbs-down" aria-hidden="true"></i>
   </button>
 `;
 

@@ -1,11 +1,17 @@
 import RestaurantDbSource from '../../data/restaurantdb-source';
 import { restorantItem } from '../templates/template-creator';
 
+
 const HomePage = {
   async render() {
     return `
         <section class="hero">
-            <img src="./images/heros/hero-image_2.jpg" alt="hero-background">
+            <picture>
+            <source media="(max-width: 600px)" srcset="./images/heros/hero-small.jpg">
+            <img 
+                src='./images/heros/hero-large.jpg' 
+                alt="hero-backgroundr"></img>
+            </picture>
             <div class="hero-content">
                 <h2 class="hero-sub-title">it's a good time for the great taste of burgers</h2>
                 <h1 class="hero-title">burger week</h1>
